@@ -25,21 +25,20 @@ conn.on('auth', function() {
 });
 conn.connect();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.send("womp womp. Why is bro here? 💀");
 });
 
 app.post("/", (req, res) => {
-  var data = req.body;
-  let rawData = data.toString();
-  conn.send('Raw Data:', rawData);
+    var data = req.body;
+
   if (rconAuthenticated)
   {
-    const parsedData = new URLSearchParams(rawData);
-    conn.send('Parsed Data:', parsedData);
     conn.send('say Ko-fi dotation!!! message: ' + data.data.message);
+    conn.send('say Ko-fi dotation!!! message: ' + data.message);
+    conn.send('say Ko-fi dotation!!! message: ' + data);
     console.log('say Ko-fi dotation!!! message: ' + data.data.message);
   }
 
