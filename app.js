@@ -25,6 +25,8 @@ conn.on('auth', function() {
 });
 conn.connect();
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
   res.send("womp womp. Why is bro here? 💀");
 });
