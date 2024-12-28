@@ -26,6 +26,20 @@ conn.on('auth', function() {
 );
 conn.connect();
 
+function getRankFromData(data) {
+    for (var i = 0; i < data.shop_items.length; i++) {
+        switch (data.shop_items[i].variation_name)
+        {
+            case 'Squire': return 'donator';
+            case 'Knight': return 'knight';
+            case 'Overlord': return 'overlord';
+            case 'Blue': return 'youtube'; // temporary
+            default: break;
+        }
+    }
+    return '';
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -40,7 +54,12 @@ app.post("/", (req, res) => {
     {
         try {
             const parsedData = JSON.parse(rawBody);
-            conn.send('say Ko-fi dotation!!! message: ' + parsedData.message);
+            const rank = getRankFromData(parsedData);
+            parsedData.message = 'ZSolar1'; // temporary
+            if (rank != '')
+                conn.send('lp user ' + parsedData.message + ' parent set ' + getRankFromData(parsedData));
+            else
+                res.status(500).send("Failed to get rank from data, a rank might not have been the purchased item.");
         } catch (e) {
             console.error(e);
             res.status(500).send("Failed to parse JSON data string");
