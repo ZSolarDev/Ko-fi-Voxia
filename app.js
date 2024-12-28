@@ -34,15 +34,9 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   const data = req.body;
 
-  console.log("Webhook received:", data);
-
-  // Example: Process a donation
-  if (data.type === "Donation") {
-    console.log(`New donation from ${data.from_name}: $${data.amount}`);
-  }
   if (rconAuthenticated)
   {
-    conn.send('say Ko-fi dotation!!!');
+    conn.send('say Ko-fi dotation!!!' + data);
   }
 
   // Send a response back to Ko-fi
