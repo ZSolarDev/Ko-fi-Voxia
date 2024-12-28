@@ -40,7 +40,7 @@ app.post("/", (req, res) => {
     {
         try {
             const parsedData = JSON.parse(rawBody);
-            conn.send('say Ko-fi dotation!!! message: ' + parsedData.url);
+            conn.send('say Ko-fi dotation!!! message: ' + parsedData.message);
         } catch (e) {
             console.error(e);
             res.status(500).send("Failed to parse JSON data string");
