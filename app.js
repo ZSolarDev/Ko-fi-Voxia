@@ -1,7 +1,6 @@
 var rcon = require('rcon/node-rcon.js');
 const express = require("express");
 const bodyParser = require("body-parser");
-const util = require('util');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -36,7 +35,7 @@ app.post("/", (req, res) => {
 
   if (rconAuthenticated)
   {
-    conn.send('say Ko-fi dotation!!! message: ' + util.inspect(req, { showHidden: false, depth: null }));
+    conn.send('say Ko-fi dotation!!! message: ' + JSON.stringify(req.data, null, 2));
   }
 
   // Send a response back to Ko-fi
