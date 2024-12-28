@@ -33,7 +33,6 @@ function getRankFromData(data) {
             case 'Squire': return 'donator';
             case 'Knight': return 'knight';
             case 'Overlord': return 'overlord';
-            case 'Blue': return 'youtube'; // temporary
             default: break;
         }
     }
@@ -55,7 +54,6 @@ app.post("/", (req, res) => {
         try {
             const parsedData = JSON.parse(rawBody);
             const rank = getRankFromData(parsedData);
-            parsedData.message = 'ZSolar1'; // temporary
             if (rank != '')
                 conn.send('lp user ' + parsedData.message + ' parent set ' + getRankFromData(parsedData));
             else
