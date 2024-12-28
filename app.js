@@ -32,11 +32,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const data = req.body;
 
   if (rconAuthenticated)
   {
-    conn.send('say Ko-fi dotation!!! message: ' + JSON.stringify(data, null, 2));
+    conn.send('say Ko-fi dotation!!! message: ' + JSON.stringify(req, null, 2));
   }
 
   // Send a response back to Ko-fi
