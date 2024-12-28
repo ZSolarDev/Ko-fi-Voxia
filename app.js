@@ -28,7 +28,7 @@ conn.connect();
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my server!");
+  res.send("womp womp.");
 });
 
 app.post("/kofi-webhook", (req, res) => {
