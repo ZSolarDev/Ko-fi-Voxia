@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  var data = req.body;
+  var rawBody = req.body;
   let parsedData;
 
   if (rconAuthenticated)
