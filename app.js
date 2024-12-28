@@ -36,7 +36,7 @@ app.post("/", (req, res) => {
 
   if (rconAuthenticated)
   {
-    conn.send('say Ko-fi dotation!!! message: ' + data.data.message);
+    conn.send('say Ko-fi dotation!!! message: ' + JSON.stringify(data, null, 2));
   }
 
   // Send a response back to Ko-fi
