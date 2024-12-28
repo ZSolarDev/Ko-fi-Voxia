@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 const RCON_IP = '192.99.103.218';
 const RCON_PORT = 8130;
 const RCON_PASSWORD = '819VDe1x3l201';
