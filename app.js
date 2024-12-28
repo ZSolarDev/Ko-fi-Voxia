@@ -25,21 +25,23 @@ conn.on('auth', function() {
 });
 conn.connect();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("womp womp. Why is bro here? 💀");
 });
 
 app.post("/", (req, res) => {
-    var data = req.body;
+  var data = req.body;
+  let parsedData;
 
   if (rconAuthenticated)
   {
-    conn.send('say Ko-fi dotation!!! message: ' + data.data.message);
-    conn.send('say Ko-fi dotation!!! message: ' + data.message);
-    conn.send('say Ko-fi dotation!!! message: ' + data);
-    console.log('say Ko-fi dotation!!! message: ' + data.data.message);
+    parsedData = JSON.parse(rawBody);
+    conn.send('say Ko-fi dotation!!! message: ' + parsedData.data.message);
+    conn.send('say Ko-fi dotation!!! message: ' + parsedData.message);
+    conn.send('say Ko-fi dotation!!! message: ' + parsedData);
+    console.log('say Ko-fi dotation!!! message: ' + parsedData.data.message);
   }
 
   // Send a response back to Ko-fi
