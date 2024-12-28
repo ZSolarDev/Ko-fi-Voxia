@@ -66,7 +66,6 @@ app.post("/", (req, res) => {
         res.status(500).send("RCON not authenticated");
     }
 
-    // Send a response back to Ko-fi
     res.status(200).send("OK");
 });
 
