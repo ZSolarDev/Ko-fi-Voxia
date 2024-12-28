@@ -28,10 +28,10 @@ conn.connect();
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("womp womp.");
+  res.send("womp womp. Why is bro here? 💀");
 });
 
-app.post("/kofi-webhook", (req, res) => {
+app.post("/", (req, res) => {
   const data = req.body;
 
   console.log("Webhook received:", data);
