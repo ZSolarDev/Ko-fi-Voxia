@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT;
-const RCON_IP = '192.99.103.218';
-const RCON_PORT = 8130;
+const RCON_IP = '51.222.147.157';
+const RCON_PORT = 8011;
 const RCON_PASSWORD = '819VDe1x3l201';
 
 var rconAuthenticated = false;
